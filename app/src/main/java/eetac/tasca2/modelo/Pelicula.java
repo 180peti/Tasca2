@@ -3,6 +3,7 @@ package eetac.tasca2.modelo;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -10,7 +11,7 @@ import java.util.List;
  * Created by Alex Aguilera on 15/12/2017.
  */
 
-public class Pelicula {
+public class Pelicula implements Serializable{
 
     @SerializedName("vote_count")
     private int vote_count;
@@ -21,7 +22,7 @@ public class Pelicula {
     @SerializedName("vote_average")
     private double vote_average;
     @SerializedName("title")
-    private String titulo;
+    private String title;
     @SerializedName("popularity")
     private double popularity;
     @SerializedName("poster_path")
@@ -46,7 +47,7 @@ public class Pelicula {
         this.id = id;
         this.video = video;
         this.vote_average = vote_average;
-        this.titulo = titulo;
+        this.title = titulo;
         this.popularity = popularity;
         this.poster_path = poster_path;
         this.original_language = original_language;
@@ -91,11 +92,11 @@ public class Pelicula {
     }
 
     public String getTitulo() {
-        return titulo;
+        return title;
     }
 
     public void setTitulo(String titulo) {
-        this.titulo = titulo;
+        this.title = titulo;
     }
 
     public double getPopularity() {
@@ -168,5 +169,25 @@ public class Pelicula {
 
     public void setRelease_date(String release_date) {
         this.release_date = release_date;
+    }
+
+    @Override
+    public String toString() {
+        return "Movie{" +
+                "voteCount=" + vote_count +
+                ", id=" + id +
+                ", video=" + video +
+                ", voteAverage=" + vote_average +
+                ", title='" + title + '\'' +
+                ", popularity=" + popularity +
+                ", posterPath='" + poster_path + '\'' +
+                ", originalLanguage='" + original_language + '\'' +
+                ", originalTitle='" + original_title + '\'' +
+                ", genreIds=" + genre_ids +
+                ", backdropPath='" + backdrop_path + '\'' +
+                ", adult=" + adult +
+                ", overview='" + overview + '\'' +
+                ", releaseDate='" + release_date + '\'' +
+                '}';
     }
 }

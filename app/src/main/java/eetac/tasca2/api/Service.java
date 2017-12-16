@@ -16,7 +16,7 @@ import retrofit2.http.GET;
 public interface Service {
 
 
-    @GET("/search/movie")
+    @GET("/3/search/movie")
     Call<Lista> getSearch(@Query("api_key") String apiKey, @Query("query") String queryString);
 
 }

@@ -2,13 +2,14 @@ package eetac.tasca2.modelo;
 
 import com.google.gson.annotations.SerializedName;
 
+import java.io.Serializable;
 import java.util.List;
 
 /**
  * Created by Alex Aguilera on 16/12/2017.
  */
 
-public class Lista {
+public class Lista implements Serializable {
 
 
     @SerializedName("page")
@@ -57,5 +58,15 @@ public class Lista {
 
     public void setLista(List<Pelicula> lista) {
         this.lista = lista;
+    }
+
+    @Override
+    public String toString() {
+        return "ResponseMovies{" +
+                "page=" + page +
+                ", totalResults=" + total_results +
+                ", totalPages=" + total_pages +
+                ", results=" + lista +
+                '}';
     }
 }

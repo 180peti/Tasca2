@@ -23,7 +23,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class Resultado extends AppCompatActivity {
 
-    public static final String BASE_URL = "http://api.themoviedb.org/3/";
+    public static final String BASE_URL = "http://api.themoviedb.org/";
     private static final String api_key="48b8a9b575f4ca2237f8c7134f02cd4d";
     private Retrofit retrofit=null;
     private RecyclerView rwRepollistat = null;
@@ -35,8 +35,8 @@ public class Resultado extends AppCompatActivity {
         setContentView(R.layout.activity_resultado);
         busqueda=getIntent().getStringExtra("busqueda");
         rwRepollistat=findViewById(R.id.view);
-        //rwRepollistat.setHasFixedSize(true);
-        //rwRepollistat.setLayoutManager(new LinearLayoutManager(this));
+        rwRepollistat.setHasFixedSize(true);
+        rwRepollistat.setLayoutManager(new LinearLayoutManager(this));
         conexion();
     }
 
