@@ -60,13 +60,5 @@ public class Lista implements Serializable {
         this.lista = lista;
     }
 
-    @Override
-    public String toString() {
-        return "ResponseMovies{" +
-                "page=" + page +
-                ", totalResults=" + total_results +
-                ", totalPages=" + total_pages +
-                ", results=" + lista +
-                '}';
-    }
+
 }

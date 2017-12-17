@@ -42,8 +42,7 @@ public class AdapterView extends RecyclerView.Adapter<AdapterView.PelisHolder>{
     @Override
     public void onBindViewHolder(PelisHolder holder, int position) {
         holder.titulo.setText(pelis.get(position).getTitulo());
-        holder.tituloO.setText(pelis.get(position).getOriginal_title());
-        String full_path = IMAGE_URL_BASE_PATH + pelis .get(position).getPoster_path();
+        String full_path = IMAGE_URL_BASE_PATH + pelis.get(position).getPoster_path();
 
         Picasso.with(context)
                 .load(full_path)
@@ -57,11 +56,9 @@ public class AdapterView extends RecyclerView.Adapter<AdapterView.PelisHolder>{
         return pelis.size();
     }
 
-    //A view holder inner class where we get reference to the views in the layout using their ID
     public static class PelisHolder extends RecyclerView.ViewHolder {
         LinearLayout pelis;
         TextView titulo;
-        TextView tituloO;
         ImageView path;
 
         public PelisHolder (View v) {
@@ -69,7 +66,6 @@ public class AdapterView extends RecyclerView.Adapter<AdapterView.PelisHolder>{
             pelis = (LinearLayout) v.findViewById(R.id.pelis);
             titulo = (TextView) v.findViewById(R.id.titulo);
             path = (ImageView) v.findViewById(R.id.path);
-            tituloO = (TextView) v.findViewById(R.id.tituloO);
         }
     }
 }

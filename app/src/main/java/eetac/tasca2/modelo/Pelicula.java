@@ -171,23 +171,5 @@ public class Pelicula implements Serializable{
         this.release_date = release_date;
     }
 
-    @Override
-    public String toString() {
-        return "Movie{" +
-                "voteCount=" + vote_count +
-                ", id=" + id +
-                ", video=" + video +
-                ", voteAverage=" + vote_average +
-                ", title='" + title + '\'' +
-                ", popularity=" + popularity +
-                ", posterPath='" + poster_path + '\'' +
-                ", originalLanguage='" + original_language + '\'' +
-                ", originalTitle='" + original_title + '\'' +
-                ", genreIds=" + genre_ids +
-                ", backdropPath='" + backdrop_path + '\'' +
-                ", adult=" + adult +
-                ", overview='" + overview + '\'' +
-                ", releaseDate='" + release_date + '\'' +
-                '}';
-    }
+
 }

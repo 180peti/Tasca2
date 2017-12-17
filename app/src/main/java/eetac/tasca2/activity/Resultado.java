@@ -1,10 +1,12 @@
 package eetac.tasca2.activity;
 
+import android.app.ProgressDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
+import android.widget.ProgressBar;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -48,6 +50,11 @@ public class Resultado extends AppCompatActivity {
                     .build();
         }
 
+        final ProgressDialog prog=new ProgressDialog(this);
+        prog.setIndeterminate(true);
+        prog.setMessage("Buscando");
+        prog.show();
+
         Service retro=retrofit.create(Service.class);
         Call<Lista> call=retro.getSearch(api_key,busqueda);
         call.enqueue(new Callback<Lista>() {
@@ -55,13 +62,11 @@ public class Resultado extends AppCompatActivity {
             public void onResponse(Call<Lista> call, Response<Lista> response) {
                 List<Pelicula> movies = response.body().getLista();
                 rwRepollistat.setAdapter(new AdapterView(movies, R.layout.pelicula, getApplicationContext()));
-                //Log.d("Number of movies received: " + movies.size());
-
+                prog.dismiss();
             }
 
             @Override
             public void onFailure(Call<Lista> call, Throwable throwable) {
-                //Log.e(throwable.toString());
             }
         });
 
